@@ -9,8 +9,8 @@
 #define SAMPLING_TIME 1
 
 // Network Info
-#define SSID "iptime604"
-#define PASS "01097893615"
+#define SSID "GalaxyZzang"
+#define PASS "11111111"
 #define DEST "http://k8s-default-backendi-6566bc7d31-1619657679.ap-northeast-2.elb.amazonaws.com/location/1/"
 
 bool previous_state = true;
