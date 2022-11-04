@@ -40,7 +40,7 @@ void loop()
     Serial.print(buff);
     
     int location = atoi(buff);
-    if (location == 1 || location == 2 || location == 3) {
+    if (location == 1 || location == 2 || location == 3 || location == 4) {
       post_http(location);
     }
   }

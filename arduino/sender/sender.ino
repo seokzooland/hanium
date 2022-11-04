@@ -37,8 +37,7 @@ void transmit_byte(char data_byte)
     digitalWrite(TRANSMIT_LED,(data_byte >> i) & 0x01); 
     delay(SAMPLING_TIME);
   }
- dig
- italWrite(TRANSMIT_LED,HIGH); //Return to IDLE state
+ digitalWrite(TRANSMIT_LED,HIGH); //Return to IDLE state
  delay(SAMPLING_TIME);
 }
 
@@ -46,17 +45,30 @@ void serialEvent() {
   char inLocation = Serial.read();
   if (Serial.available()) {
 
-    if (inLocation == '1') {
-      text = "10101010\n";
-      Serial.println("Location changed to 1");
-    } else if (inLocation == '2') {
-      text = "20202020\n";
-      Serial.println("Location changed to 2");
-    } else if (inLocation == '3') {
-      text = "30303030\n";
-      Serial.println("Location changed to 3");
-    } else {
-      Serial.println("No allowed location.");
+    switch (inLocation) {
+      case '1':
+        text = "10101010\n";
+        Serial.println("Location changed to 1");
+        break;
+      
+      case '2':
+        text = "20202020\n";
+        Serial.println("Location changed to 2");
+        break;
+      
+      case '3':
+        text = "30303030\n";
+        Serial.println("Location changed to 3");
+        break;
+      
+      case '4':
+        text = "40404040\n";
+        Serial.println("Location changed to 4");
+        break;
+      
+      default:
+        Serial.println("No allowed location.");
+        break;
     }
   }
 }
