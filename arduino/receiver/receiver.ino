@@ -11,7 +11,7 @@
 // Network Info
 #define SSID "iptime604"
 #define PASS "01097893615"
-#define DEST "http://13.124.111.135:8000/location/7/"
+#define DEST "http://k8s-default-backendi-6566bc7d31-1619657679.ap-northeast-2.elb.amazonaws.com/location/1/"
 
 bool previous_state = true;
 bool current_state = true;
@@ -55,7 +55,7 @@ void post_http(int location)
     http.begin(DEST);
     http.addHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    String httpRequestData = "employee_id=7&name=han&location=" + String(location);
+    String httpRequestData = "employee_id=1&name=이동현&location=" + String(location);
     Serial.println(httpRequestData);
     int httpResponseCode = http.PUT(httpRequestData);
 
